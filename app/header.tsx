@@ -1,9 +1,7 @@
-'use client'
-
 import { ModeToggle } from "@/components/ui/mode-toggle"
-import { SignInButton, UserButton } from "@clerk/nextjs"
-import { Authenticated, Unauthenticated } from "convex/react"
 import Image from "next/image"
+import { HeaderActions } from "./header-actions"
+
 
 export function Header() {
   return <div className="bg-slate-900 py-4">
@@ -15,16 +13,9 @@ export function Header() {
         READEND
       </div>
 
-      <div>
-        <Unauthenticated>
-          <SignInButton />
-        </Unauthenticated>
-        <Authenticated>
-          <div className="flex gap-4">
+      <div className="flex gap-4 items-center">
             <ModeToggle />
-            <UserButton />
-          </div>
-        </Authenticated>
+            <HeaderActions/>
       </div>
     </div>
   </div>
