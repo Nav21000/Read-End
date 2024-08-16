@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Unauthenticated,Authenticated,useMutation, useQuery } from "convex/react";
 import { SignInButton ,UserButton} from "@clerk/nextjs";
 import { api } from "@/convex/_generated/api";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Home() {
 
@@ -15,9 +17,10 @@ export default function Home() {
       </Unauthenticated>
       <Authenticated>
         <UserButton />
-        <button onClick={()=>{
+        <ModeToggle/>
+        <Button onClick={()=>{
           createDocument({title:'hello world'})
-        }}>Click Me</button>
+        }}>Click Me</Button>
 
         {documents?.map((doc)=>(
 
